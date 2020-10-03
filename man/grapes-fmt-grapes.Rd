@@ -4,7 +4,12 @@
 \alias{\%fmt\%}
 \title{Format a string}
 \usage{
-input_str \%fmt\% vec
+input_str \%fmt\% sub_vec
+}
+\arguments{
+\item{input_str}{a character string with some placeholders of the form "{}" or "{index}"}
+
+\item{sub_vec}{a character string vector of the strings to fill the placeholders}
 }
 \description{
 A string with marks in the form of "{}" is formated at
@@ -14,4 +19,7 @@ same amount of substituents as the string has "{}" marks.
 }
 \examples{
 "Hello {}. This is supposed to be a {}!" \%fmt\% c("World", "Test")
+
+"This is supposed to be a {2}. Hello {1}." \%fmt\% c("World", "Test")
+
 }

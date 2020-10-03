@@ -6,6 +6,11 @@
 \usage{
 x \%cat\% y
 }
+\arguments{
+\item{x}{left hand side character string}
+
+\item{y}{right hand side character string}
+}
 \description{
 This function is a wraper for the 'paste0' function
 and does exactly the same. Put the first string to the
