@@ -3,19 +3,20 @@
 \name{CountMap}
 \alias{CountMap}
 \title{Python-like Counter dictionary}
-\usage{
-cl <- DictMap$new()
-cl$add("a")
-cl$add("a")
-cl$get("a") == 2
-cl$head(1)
-}
 \description{
 Counter dictionary to count the occurences of a
 character string. The class provides additionaly
 a function head(top_n) to get the top n occurences.
 Also included is a sort function to sort the internal list.
 WARNING: This operation cannot be undone.
+}
+\examples{
+cl <- CountMap$new()
+cl$add("Hello")
+cl$add("Hello")
+cl$get("Hello") == 2
+cl$head(2)
+
 }
 \section{Super class}{
 \code{\link[RolliNLP:DictMap]{RolliNLP::DictMap}} -> \code{CountMap}
@@ -34,6 +35,7 @@ WARNING: This operation cannot be undone.
 \out{<details open ><summary>Inherited methods</summary>}
 \itemize{
 \item \out{<span class="pkg-link" data-pkg="RolliNLP" data-topic="DictMap" data-id="get">}\href{../../RolliNLP/html/DictMap.html#method-get}{\code{RolliNLP::DictMap$get()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="RolliNLP" data-topic="DictMap" data-id="items">}\href{../../RolliNLP/html/DictMap.html#method-items}{\code{RolliNLP::DictMap$items()}}\out{</span>}
 }
 \out{</details>}
 }
@@ -45,13 +47,6 @@ WARNING: This operation cannot be undone.
 \if{html}{\out{<div class="r">}}\preformatted{CountMap$add(key)}\if{html}{\out{</div>}}
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{key}}{atomic character string}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-put"></a>}}
@@ -61,15 +56,6 @@ WARNING: This operation cannot be undone.
 \if{html}{\out{<div class="r">}}\preformatted{CountMap$put(key, value)}\if{html}{\out{</div>}}
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{key}}{atomic character string}
-
-\item{\code{value}}{any}
-}
-\if{html}{\out{</div>}}
-}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-order"></a>}}

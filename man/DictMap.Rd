@@ -3,11 +3,6 @@
 \name{DictMap}
 \alias{DictMap}
 \title{Python-like dictionary}
-\usage{
-cl <- DictMap$new()
-cl$put("a", 2)
-cl$get("a")
-}
 \description{
 With this dictionary one can attach data to
 a key. The limitation here is that the key
@@ -15,11 +10,18 @@ must be an atomic character string. Functions get()
 and put() are provided to edit and get informations
 about the class.
 }
+\examples{
+cl <- DictMap$new()
+cl$put ("key", "value")
+cl$get("key") == "value"
+
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-get}{\code{DictMap$get()}}
 \item \href{#method-put}{\code{DictMap$put()}}
+\item \href{#method-items}{\code{DictMap$items()}}
 \item \href{#method-clone}{\code{DictMap$clone()}}
 }
 }
@@ -52,10 +54,19 @@ about the class.
 \describe{
 \item{\code{key}}{atomic character string}
 
-\item{\code{value}}{any}
+\item{\code{value}}{any value}
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-items"></a>}}
+\if{latex}{\out{\hypertarget{method-items}{}}}
+\subsection{Method \code{items()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DictMap$items()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
