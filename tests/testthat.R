@@ -1,4 +1,5 @@
 library(checkmate)
+library(purrr)
 library(testthat)
 library(stringr)
 library(purrr)
