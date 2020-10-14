@@ -35,6 +35,9 @@ DictMap <- R6::R6Class(
         value <- list(value)
       }
       private$main_list[key] <- value
+    },
+    items = function() {
+      data.frame(keys = names(private$main_list), values = unlist(unname(private$main_list)))
     }
   ))
 
@@ -93,5 +96,54 @@ CountMap <- R6::R6Class(
 
       private$main_list[order(unlist(private$main_list),decreasing=TRUE)][seq_len(top_n)]
     }
+  )
+)
+
+
+WordDict <- R6::R6Class("WordDict",
+  inherit = DictMap,
+  private = list(
+    index = 1
+  ),
+  public = list(
+    lower = F,
+    initialize = function(lower = F){
+      self$lower = lower
+    },
+    get = function(key) {
+      assertCharacter(key)
+      assertAtomic(key)
+      ret_val <- unname(private$main_list[key])[[1]]
+      if (is.null(ret_val)) {
+        return(0)
+      } else {
+        return(ret_val)
+      }
+    },
+    add = function(word) {
+      assertCharacter(word)
+      assertAtomic(word)
+
+      if (self$lower) {
+        word <- tolower(word)
+      }
+
+      if (is.null(private$main_list[word][[1]])) {
+        private$main_list[word] <- private$index
+        private$index <- private$index + 1
+      }
+    },
+    word2vec = function(words) {
+      assertCharacter(words)
+
+      if (self$lower) {
+        words <- lapply(words, tolower)
+      } else {
+        words <- as.list(words)
+      }
+      sapply(words, function(x) {self$get(x)}
+      )
+    },
+    get_test = function() {return(private$main_list)}
   )
 )
