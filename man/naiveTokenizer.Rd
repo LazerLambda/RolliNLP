@@ -10,6 +10,8 @@ naiveTokenizer(string)
 \item{string}{character string to be tokenized}
 }
 \description{
+Simple Tokenizer to split words among punctuation and whitespaces.
+If possible, prefer a DL Tokenizer.
 WARNING: This tokenizer is build for the english language and can be applied
 to other latin-based or cyrillic-based languages. This tokenizer does not work on other alphabets
 like chinese, devanagari, thai, japanese, hebrew or arabic.

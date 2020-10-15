@@ -6,3 +6,9 @@ test_that("partitionText: Simple test I", {
     partitionText("Hello World."),
     list("Hello", "World", "."))
 })
+
+test_that("partitionText: Simple test I", {
+  expect_error(partitionText(2))
+})
+
+# TODO: tests for getNGram
